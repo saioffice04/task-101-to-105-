@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .a{
+            text-align: right;
+        }
+        .a{
+            height: 300px ;
+            width: 600px;
+        }
+        .b{
+            height: 100px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <p class="data">
+    
+    <i class="data">Guidelines toward optimized ensemble construction</i>
+    <p class="data">In this section, we use MEE to examine ensemble characteristics and provide some
+        guidelines for building optimal ensembles. We expect that by optimizing the ensemble
+        construction process, MEE will in general achieve comparable accuracy to other methods
+        using fewer individuals. We use data collected from the first fold of the first crossvalidation routine for the following analyses</p>
+        <p class="data">We first investigate whether the ensemble size is positively related with the predictive
+            accuracy. It has been well established that, to a certain degree, the predictive accuracy of an
+            ensemble improves as the number of classifiers in the ensemble increases. For example, our
+            result in Figure 12 indicates that accuracy improvements flatten out at an ensemble size of
+            approximately 15-25. We also investigate whether the diversity among classifiers is
+            positively related with the ensemble’s classification performance. In our experiments, we
+            measured the diversity based on the difference of predicted class between each classifier and
+            the ensemble. We first define a new operator ⊕ as follows: α ⊕ β = 0 if α = β, 1 otherwise.
+            When an ensemble e consists of g classifiers, the diversity of ensemble e, diversitye
+            , is defined
+            as follows:</p>
+                        <center><img class="b" src="../Desktop/sai.png"></p></center>
+            <p class="data">where N is the number of records in the test data and pred<sub>j</sub>
+               <sup> i</sup>
+                 and pred<sub>j</sub>
+               <sup> e </sup>represent the
+                predicted class label for record j by classifier i and ensemble e respectively. The larger
+                the value of diversitye
+                , the more diverse the ensemble is.</p>
+                <p class="data">We show the relationship between the predictive accuracy and ensemble diversity
+                    in Figure 12. This shows the expected positive relationship between accuracy and
+                    diversity. However, our results show that too much diversity among classifiers can
+                    deteriorate ensemble performance, as the final decision made by ensemble becomes a
+                    random guess.</p>
+                    <p class="data"><i>Figure 12: The relationship between the predictive accuracy and ensemble size (left),
+                        and between the predictive accuracy and ensemble diversity (right) with 95% confidence
+                        interval on the Soybean data. We observed similar patterns on other data sets.</i></p>
+                        <center><img class="a" src="../Desktop/sai2.png"></center>
+                        
+                            <b class="data">Conclusions</b>
+                            <p class="data">In this section, we propose a new two-level ensemble construction algorithm, MetaEvolutionary Ensembles (MEE), that uses feature selection as the diversity mechanism.
+                                At the first level, individual classifiers compete against each other to correctly predict
+                                held-out examples. Classifiers are rewarded for predicting difficult points, relative to the
+                                other members of their respective ensembles. At the top level, the ensembles compete
+                                directly based on classification accuracy.</p>
+                                <p class="data">Our model shows consistently improved classification performance compared to a
+                                    single classifier at the cost of computational complexity. Compared to the traditional
+                                    ensembles (Bagging and Boosting) and GEFS, our resulting ensemble shows comparable
+                                    performance while maintaining a smaller ensemble. Further, our two-level evolutionary
+                                    framework confirms that more diversity among classifiers can improve predictive accuracy. Up to a certain level, the ensemble size also has a positive effect on the ensemble
+                                    performance.</p>
+                                    <p class="data">The next step is to compare this algorithm more rigorously to others on a larger
+                                        collection of data sets, and perform any necessary performance tweaks on the EA energy
+                                        allocation scheme. This new experiment is to test the claim that there is relatively little
+                                        room for other ensembles algorithm to obtain further improvement over decision forest
+                                        method (Breiman, 1999). Along the way, we will examine the role of various characteristics
+                                        of ensembles (size, diversity, etc.) and classifiers (type, number of dimensions/data
+                                        points, etc.). By giving the system as many degrees of freedom as possible and observing
+                                        the characteristics that lead to successful ensembles, we can directly optimize these
+                                        characteristics and translate the results to a more scalable architecture (Street & Kim,
+                                        2001) for large-scale predictive tasks</p>
+                                       <center> <b>CONCLUSIONS</b></center>
+                                       <p class="data">In this chapter, we proposed a new framework for feature selection in supervised
+                                        and unsupervised learning. In particular, we note that each feature subset should be
+                                        evaluated in terms of multiple objectives. In supervised learning, ELSA with neural
+                                        networks model (ELSA/ANN) was used to search for possible combinations of features
+                                        and to score customers based on the probability of buying new insurance product
+                                        respectively. The ELSA/ANN model showed promising results in two different experiments, when market managers have clear decision scenario or when they don’t. ELSA
+                                        was also used for unsupervised feature selection. Our algorithm, ELSA/EM, outperforms
+                                        a greedy algorithm in terms of classification accuracy. Most importantly, in the proposed
+                                        framework we can reliably select an appropriate clustering model, including significant
+                                        features and the number of clusters.</p>
+                                        /<p class="data">We also proposed a new ensemble construction algorithm, Meta-Evolutionary
+                                            Ensembles (MEE), where feature selection is used as the diversity mechanism among
+                                            classifiers in the ensemble. In MEE, classifiers are rewarded for predicting difficult
+                                            points, relative to the other members of their respective ensembles. Our experimental
+                                            results indicate that this method shows consistently improved performance compared
+                                            to a single classifier and the traditional ensembles.</p>
+                                            
+                                               
+                                                <p class="data">One major direction of future research on the feature selection with ELSA is to find
+                                                    a way to boost the weak selection pressure of ELSA while keeping its local selection
+                                                    mechanism. For problems requiring effective selection pressure, local selection may be
+                                                    too weak because the only selection pressure that ELSA can apply comes from the
+                                                    sharing of resources. Dynamically adjusting the local environmental structure based on
+                                                    the certain ranges of the observed fitness values over a fixed number of generations could
+                                                    be a promising solution. In this way, we could avoid the case in which the solution with
+                                                    the worst performance can survive into the next generation because there are no other
+                                                    solutions in its local environment.</p>
+                                                    <p class="data">Another major direction of future research is related with the scalability issue. By
+                                                    minimizing the communication among agents, our local selection mechanism makes ELSA
+                                                    efficient and scalable. However, our models suffer the inherent weakness of the wrapper
+                                                    model, the computational complexity. Further by combining EAs with ANN to take the
+                                                    advantages of both algorithms, it is possible that the combined model can be so slow that
+                                                    it cannot provide solutions in a timely manner. With the rapid growth of records and
+                                                    variables in database, this failure can be critical. Combining ELSA with faster learning
+                                                    algorithms such as decision tree algorithms and Support Vector Machine (SVM) will be
+                                                    worth pursuing.</p>
+                                                   <center> <b>ENDNOTES </b></center>
+                                                   <p class="data">1 Continuous objective functions are discretized. <br>
+                                                    2 This is one of main tasks in the 2000 CoIL challenge (Kim & Street, 2000). For more
+                                                    information about CoIL challenges and the data sets, please refer to http://
+                                                    www.dcs.napier.ac.uk/coil/challenge/.<br>
+                                                     3 If other objective values are equal, we prefer to choose a solution with small
+                                                    variance. <br>
+                                                    4 This is reasonable because as we select more prospects, the expected accuracy gain
+                                                    will go down. If the marginal revenue from an additional prospect is much greater
+                                                    than the marginal cost, however, we could sacrifice the expected accuracy gain.
+                                                    Information on mailing cost and customer value was not available in this study.<br>
+                                                     5 The other four features selected by the ELSA/logit model are: contribution to
+                                                    bicycle policy, fire policy, number of trailer, and lorry policies. <br>
+                                                    6 The cases of zero or one cluster are meaningless, therefore we count the number of
+                                                    clusters as K = κ + 2 where κ is the number of ones and Kmin = 2 ≤ K ≤ Kmax.<br>
+                                                     7 For K = 2, we use Fcomplexity = 0.76, which is the closest value to 0.69 represented in
+                                                    the front. <br>
+                                                    8 In our experiments, standard error is computed as standard deviation / iter0.5where
+                                                    iter = 5.</p><br>
+                                                   <center> <b>REFERENCES</b></center>
+                                                   <p class="data">Agrawal, R., Gehrke, J., Gunopulos, D., & Raghavan, P. (1998). Automatic subspace
+                                                    clustering of high dimensional data for data mining applications. In Proceedings</p>
+                                                    
+                                                        
+                                                    <p class="data">of the ACM SIGMOD Int’l<i> Conference on Management of Data</i>, pp. 94-105, Seattle,
+                                                            WA.<br>
+                                                            Bauer, E. & Kohavi, R. (1999). An empirical comparison of voting classification
+                                                            algorithms: Bagging, boosting, and variants.<i> Machine Learning</i>, 36:105-139.
+                                                            Bradley, P. S., Fayyad, U. M., & Reina, C. (1998). Scaling EM (expectation-maximization)
+                                                            clustering to large databases. Technical Report MSR-TR-98-35, Microsoft, Redmond,
+                                                            WA.<br>
+                                                            Breiman, L. (1996a). Bagging predictors. <i>Machine Learning</i>, 24(2):123-140.<br>
+                                                            Breiman, L. (1996b). Bias, variance, and arching classifiers. Technical Report 460,<br>
+                                                            University of California, Department of Statistics, Berkeley, CA.<br>
+                                                            Breiman, L. (1999). Random forests-Random features. Technical Report 567, University
+                                                            of California, Department of Statistics, Berkeley, CA.<br>
+                                                            Buhmann, J. (1995). Data clustering and learning. In Arbib, M. (ed.),<i> Handbook of Brain
+                                                            Theory and Neural Networks</i>. Cambridge, MA: Bradfort Books/MIT Press.
+                                                            Cheeseman, P. & Stutz, J. (1996). Bayesian classification system (AutoClass): Theory
+                                                            and results. In U. Fayyad, G. Piatetsky-Shapiro, P. Smyth, & R. Uthurusamy(eds.),
+                                                           <i> Advances in Knowledge Discovery and Data Mining</i>, pp. 153-180, San Francisco:
+                                                            AAAI/MIT Press.<br>
+                                                            Chen, S., Guerra-Salcedo, C., & Smith, S. (1999). Non-standard crossover for a standard
+                                                            representation - Commonality-based feature subset selection. In Proceedings of
+                                                            the Genetic and Evolutionary Computation Conference, pp. 129-134. San Francisco: Morgan Kaufmann.<br>
+                                                            Cunningham, P. & Carney, J. (2000). Diversity versus quality in classification ensembles
+                                                            based on feature selection. Technical Report TCD-CS-2000-02, Trinity College,
+                                                            Department of Computer Science, Dublin, Ireland.<br>
+                                                            Dempster, A. P., Laird, N. M., & Rubin, D. B. (1977). Maximum likelihood from incomplete
+                                                            data via the EM algorithm.<i> Journal of the Royal Statistical Society</i>, Series B,
+                                                            39(1):1-38.<br>
+                                                            Devaney, M. & Ram, A. (1997). Efficient feature selection in conceptual clustering. In
+                                                            Proceedings of the 14th Int’l<i> Conference on Machine Learning</i>, pp. 92-97. San
+                                                            Francisco: Morgan Kaufmann.<br>
+                                                            Dy, J. G. & Brodley, C. E. (2000a). Feature subset selection and order identification for
+                                                            unsupervised learning. In Proceedings of the 17th Int’l Conference on Machine
+                                                            Learning, pp. 247-254. San Francisco: Morgan Kaufmann.<br>
+                                                            Dy, J. G. & Brodley, C. E. (2000b). Visualization and interactive feature selection for
+                                                            unsupervised data. In <i>Proceedings of the 6th ACM SIGKDD Int’l Conference on
+                                                            Knowledge Discovery & Data Mining (KDD-00)</i>, pp. 360-364, ACM Press.<br>
+                                                            Freund, Y. & Schapire, R. (1996). Experiments with a new boosting algorithm. In
+                                                           <i> Proceedings of the 13th Int’l Conference on Machine Learning, pp</i>. 148-156, Bari,
+                                                            Italy, Morgan Kaufmann.<br>
+                                                            Goldberg, D. E. & Richardson, J. (1987). Genetic algorithms with sharing for multimodal
+                                                            function optimization. In Proceedings of the 2nd International Conference on
+                                                            Genetic Algorithms, pp. 41-49. Hillsdale, NJ: Lawrence Erlbaum.<br>
+                                                            Guerra-Salcedo, C. & Whitley, D. (1999). Genetic approach to feature selection for
+                                                            ensemble creation. In GECCO-99: Proceedings of the Genetic and Evolutionary
+                                                            Computation Conference, pp. 236-243. San Francisco: Morgan Kaufmann.</p><br>
+
+                                                               
+                                                                <p class="data">Ho, T. K. (1998a). C4.5 decision forests. In <i>Proceedings of the 14th International
+                                                                    Conference on Pattern Recognition,</i> IEEE Computer Society, pp. 545-549.<br>
+                                                                    Ho, T. K. (1998b). The random subspace method for constructing decision forests.<i> IEEE</i>
+                                                                   <i> Transactions on Pattern Analysis and Machine Intelligence,</i> 20(8):832-844.<br>
+                                                                    Horn, J. (1997). Multi-criteria decision making and evolutionary computation. In T. Back,
+                                                                    D. B. Fogel & Z. Michaelevicz (Eds.), <i>Handbook of Evolutionary Computation</i>.
+                                                                    London: Institute of Physics Publishing.<br>
+                                                                    Kim, Y. & Street, W. N. (2000). CoIL challenge 2000: Choosing and explaining likely
+                                                                    caravan insurance customers. Technical Report 2000-09, Sentient Machine Research and Leiden Institute of Advanced Computer Science. http://
+                                                                   <i> www.wi.leidenuniv.nl/~putten/library/cc2000/</i>.<br>
+                                                                    Mangasarian, O. L., Street, W. N., & Wolberg, W. H. (1995). Breast cancer diagnosis and
+                                                                    prognosis via linear programming. <i>Operations Research</i>, 43(4):570-577.
+                                                                    Meila, M. & Heckerman, D. (1998). An experimental comparison of several clustering
+                                                                    methods. Technical Report MSR-TR-98-06, Microsoft, Redmond, WA.
+                                                                    Menczer, F. & Belew, R. K. (1996). From complex environments to complex behaviors.
+                                                                    Adaptive Behavior, 4:317-363.<br>
+                                                                    Menczer, F., Degeratu, M., & Street, W. N. (2000). Efficient and scalable Pareto optimization by evolutionary local selection algorithms.<i> Evolutionary Computation</i>,
+                                                                    8(2):223-247.<br>
+                                                                    Menczer, F., Street, W. N., & Degeratu, M. (2000).<i>Evolving heterogeneous neural agents</i>
+                                                                    by local selection. In V. Honavar, M. Patel & K. Balakrishnan(eds.),<i> Advances in
+                                                                    the Evolutionary Synthesis of Intelligent Agents</i>. Cambridge, MA: MIT Press.<br>
+                                                                    Opitz, D. (1999). Feature selection for ensembles.<i> In Proceedings of the 16th National
+                                                                    Conference on Artificial Intelligence </i>(AAAI), pp. 379-384, Orlando, FL, AAAI.<br>
+                                                                    Street, W. N. & Kim, Y. (2001). A streaming ensemble algorithm (SEA) for large-scale
+                                                                    classification. <i>In Proceedings of the 7th ACM SIGKDD International Conference
+                                                                    on Knowledge Discovery & Data Mining</i> (KDD-01), pp.377-382, ACM Press.<br>
+                                                                    Street, W. N., Mangasarian, O. L., & Wolberg, W. H. (1995). An inductive learning
+                                                                    approach to prognostic prediction. In A. Prieditis & S. Russell(eds.), Proceedings
+                                                                    of the 12th <i>International Conference on Machine Learning</i>, pp. 522-530, San
+                                                                    Francisco: Morgan Kaufmann.<br>
+                                                                    Van Veldhuizen, D. A. (1999). <i>Multiobjective evolutionary algorithms</i> Classifications,
+                                                                    analyses, and new innovations. PhD thesis, Air Force Institute of Technology.</p><br>
+                                                                   
+
+                
+
+
+
+
+    
+</body>
+</html>
